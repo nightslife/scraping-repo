@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 });
 
 
-//Function to scrape information from new york times
+//Scrape
 app.get("/scrape", (req, res) => {
     var results = {};
     axios.get("https://www.nytimes.com/").then((response) => {
@@ -61,7 +61,7 @@ app.get("/scrape", (req, res) => {
         res.redirect("/")
     });
 });
-//Pull all the scraped data and display as Json
+//JSON
 app.get("/all", (req, res) => {
     db.Article.find({}, (err, data)=>{
         if(err){
@@ -71,7 +71,7 @@ app.get("/all", (req, res) => {
         }
     })
 });
-
+//Save Article
 app.get("/saveArticle/:id", (req, res)=>{
     const articleId = req.params.id;
     
@@ -95,6 +95,7 @@ app.get("/saveArticle/:id", (req, res)=>{
     )
     
 })
+//Delete Saved-state of Article
 app.get("/removeArticle/:id", (req, res)=>{
     const articleId = req.params.id;
     
@@ -118,7 +119,7 @@ app.get("/removeArticle/:id", (req, res)=>{
     )
     
 })
-
+//Get all Saved Articles
 app.get("/saved", (req, res) => {
     db.Article.find({isSaved: true})
     .then((data)=>{
@@ -136,22 +137,22 @@ app.get("/clear", (req, res) => {
         res.redirect("/")
     })
 })
-
+//Get specific article
 app.get("/article/:id"), (req, res)=>{
     const articleId = req.params.id;
-
-    db.Article.findOne({_id:articleId})
-        .populate("notes")
-        .then((err, data)=>{
-            console.log(data)
-            if(err){
-                console.log(err)
+    console.log(articleId)
+    // db.Article.findById(articleId)
+    //     .populate("note")
+    //     .then((err, data)=>{
+    //         console.log(data)
+    //         if(err){
+    //             console.log(err)
 
            
-           }else{
-                res.render("article" + {id: data})
-           }
-        })
+    //        }else{
+    //             res.render("article" + {id: data})
+    //        }
+    //     })
 
 }
 

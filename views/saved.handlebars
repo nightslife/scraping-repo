@@ -6,9 +6,9 @@
           <h2 class="card-header">{{title}}</h2>
           <div class="card-body">
             <p>{{summ}}</p>
-            <a href="{{link}}">Read More</a>
+            <a href="{{link}}" class="btn btn-success">Read More</a>
           </div>
-            <a href="/article/{{this.id}}">Comment</a>
+            <a href="/article/{{this.id}}" class="btn btn-info">Comment</a>
           <a href="/removeArticle/{{this.id}}" class="btn btn-primary">Remove</a>
       </li>
     {{/if}}
