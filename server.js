@@ -47,7 +47,7 @@ app.get("/scrape", (req, res) => {
             results.link = "https://www.nytimes.com" + $(element).find("a").attr("href");
             //Capture the title of the article within the h2 element.
             results.title = $(element).find("h2").text() || $(element).find("h2").children().text();
-            results.summary = $(element).find("li").text() || $(element).find("p").text();
+            results.summ = $(element).find("li").text() || $(element).find("p").text();
             
             db.Article.create(results)
             .then((dbArticles) => {

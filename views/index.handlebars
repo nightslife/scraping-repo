@@ -5,10 +5,10 @@
         <div class="about">
           <h2 class="card-header">{{title}}</h2>
           <div class="card-body">
-            <p>{{summary}}</p>
-            <a href="{{link}}">Read More</a>
+            <p>{{summ}}</p>
+            <a href="{{link}}" class="btn btn-outline-success">Read More</a>
           </div>
-            <a href="/article/{{this.id}}">Comment</a>
+            <a href="/article/{{this.id}}" class="btn btn-info">Comment</a>
           <a href="/saveArticle/{{this.id}}" class="btn btn-primary">Save</a>
       </li>
     {{/unless}}

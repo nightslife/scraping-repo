@@ -5,7 +5,7 @@
         <div class="about">
           <h2 class="card-header">{{title}}</h2>
           <div class="card-body">
-            <p>{{summary}}</p>
+            <p>{{summ}}</p>
             <a href="{{link}}">{{link}}</a>
           </div>
             <a href="/article/{{this.id}}">Read More</a>
@@ -42,7 +42,7 @@
             {{#each article.comment}}
                 <div class="card">
                     <p id="commentName">{{name}}</p>
-                    <p>{{body}}</p>
+                    <p>{{addNotes}}</p>
                 </div>
             {{/each}}
         {{/if}}
