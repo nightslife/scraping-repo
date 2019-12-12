@@ -1,0 +1,16 @@
+<ul class="text-center">
+  {{#each article}}
+    {{#unless isSaved}}
+      <li class="card row">
+        <div class="about">
+          <h2 class="card-header">{{title}}</h2>
+          <div class="card-body">
+            <p>{{summary}}</p>
+            <a href="{{link}}">Read More</a>
+          </div>
+            <a href="/article/{{this.id}}">Comment</a>
+          <a href="/saveArticle/{{this.id}}" class="btn btn-primary">Save</a>
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>

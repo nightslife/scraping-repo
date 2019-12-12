@@ -1,0 +1,19 @@
+<ul class="text-center">
+  {{#each articles}}
+    {{#if isSaved}}
+      <li class="card row">
+        <div class="about">
+          <h2 class="card-header">{{title}}</h2>
+          <div class="card-body">
+            <p>{{summary}}</p>
+            <a href="{{link}}">Read More</a>
+          </div>
+            <a href="/article/{{this.id}}">Comment</a>
+          <a href="/removeArticle/{{this.id}}" class="btn btn-primary">Remove</a>
+      </li>
+    {{/if}}
+    {{/each}}
+    {{#else}}
+        <h1 class="card">You do not have any saved articles!</h1>
+    {{/else}}
+</ul>

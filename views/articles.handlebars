@@ -1,0 +1,53 @@
+<ul class="text-center">
+  {{#each article}}
+    {{#if isSaved}}
+      <li class="card row">
+        <div class="about">
+          <h2 class="card-header">{{title}}</h2>
+          <div class="card-body">
+            <p>{{summary}}</p>
+            <a href="{{link}}">{{link}}</a>
+          </div>
+            <a href="/article/{{this.id}}">Read More</a>
+          <a href="/saveArticle/{{this.id}}" class="btn btn-primary">Remove</a>
+      </li>
+    {{/if}}
+    {{/each}}
+    {{#else}}
+        <h1 class="card">You do not have any saved articles!</h1>
+    {{/else}}
+
+  
+</ul>
+<div class="row">
+    <div class="col"></div>
+    <form>
+        <h5>Comment on this article</h5>
+        <div class="row">
+            <div class="input-field">
+                <input id="icon_prefix" type="text" placeholder="Name" name="name">
+            </div>
+            <div class="input-field">
+                <input id="icon_telephone" type="text" placeholder="comment" name="comment">
+            </div>
+        </div>
+        <div class="row">
+            <center><input class="btn add-comment" type="submit" value="submit"></center>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div>
+        {{#if article.comment}}
+            {{#each article.comment}}
+                <div class="card">
+                    <p id="commentName">{{name}}</p>
+                    <p>{{body}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
+        {{#else}}
+            <p>Enter the first comment on this Article</p>
+        {{/else}}
+    </div>
+</div>
